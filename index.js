@@ -6,6 +6,8 @@ const path = require("path");
 const http = require("http");
 const session = require("express-session");
 
+const PORT = process.env.PORT || 3030;
+
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -91,6 +93,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3300, () => {
-  console.log("listening on PORT:3300");
+server.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
 });
